@@ -1,1 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELVORA | Premium Business Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0f;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.25);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 8%;
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #fff;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .btn-contact {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-contact:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 8% 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .tagline {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      border: 1px solid var(--card-border);
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: var(--card-bg);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-bottom: 36px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      background: var(--accent);
+      color: #000;
+      padding: 14px 36px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px var(--accent-glow);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      padding: 40px 8% 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 36px 28px;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(212, 175, 55, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 8%;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">ELVORA<span>.</span></div>
+    <a href="#contact" class="btn-contact">Connect</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="tagline">Exclusive Business Excellence</span>
+      <h1>Redefining Standards with <span>ELVORA</span></h1>
+      <p>We deliver precision-driven, premium strategies and enterprise solutions crafted to elevate modern businesses.</p>
+      <a href="#services" class="cta-btn">Explore Offerings</a>
+    </section>
+
+    <section class="features" id="services">
+      <div class="card">
+        <h3>Strategic Consulting</h3>
+        <p>Bespoke advisory frameworks designed to scale operations and unlock high-value opportunities.</p>
+      </div>
+      <div class="card">
+        <h3>Brand Distinction</h3>
+        <p>Curating identity and presence that commands authority in competitive luxury and enterprise markets.</p>
+      </div>
+      <div class="card">
+        <h3>Global Architecture</h3>
+        <p>Seamless execution models structured for resilient growth and international scalability.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>&copy; 2026 ELVORA. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
