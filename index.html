@@ -1,336 +1,1127 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELVORA | Premium Luxury & Business Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>ELVORA | Exclusive Luxury & E-Commerce</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cinzel & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#050B17',
+              dark: '#02060D',
+              surface: '#0B1528',
+              card: '#0f1f3d',
+              gold: '#F5B041',
+              goldDark: '#D4AC0D',
+              goldLight: '#FAD7A0',
+              accent: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            brand: ['Cinzel', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --bg: #0b0d13;
-      --card-bg: rgba(255, 255, 255, 0.03);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --accent: #d4af37;
-      --accent-glow: rgba(212, 175, 55, 0.25);
-      --text: #f9fafb;
-      --text-muted: #9ca3af;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      scroll-behavior: smooth;
-    }
-
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background-color: #030814;
+      color: #E2E8F0;
+      font-family: 'Inter', sans-serif;
       overflow-x: hidden;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 8%;
-      border-bottom: 1px solid var(--card-border);
-      backdrop-filter: blur(16px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(11, 13, 19, 0.85);
+    .hero-glow {
+      background: radial-gradient(circle at 50% 15%, rgba(30, 80, 160, 0.3) 0%, rgba(3, 8, 20, 0) 70%),
+                  radial-gradient(circle at 80% 30%, rgba(245, 176, 65, 0.1) 0%, rgba(3, 8, 20, 0) 50%);
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: #fff;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .btn-contact {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 9px 22px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn-contact:hover {
-      background: var(--accent);
-      color: #000;
-      box-shadow: 0 0 15px var(--accent-glow);
-    }
-
-    .hero {
-      text-align: center;
-      padding: 110px 8% 80px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .tagline {
-      display: inline-block;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: var(--accent);
-      margin-bottom: 20px;
-      border: 1px solid var(--card-border);
-      padding: 6px 16px;
-      border-radius: 20px;
-      background: var(--card-bg);
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 64px);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF0D0 0%, #F5B041 50%, #D48810 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
-      color: var(--text-muted);
-      font-size: 18px;
-      margin-bottom: 36px;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
+    .brand-glow {
+      text-shadow: 0 0 25px rgba(245, 176, 65, 0.4), 0 0 45px rgba(56, 189, 248, 0.2);
     }
 
-    .cta-btn {
-      background: var(--accent);
-      color: #000;
-      padding: 14px 34px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      display: inline-block;
-      transition: all 0.3s ease;
+    .glass-card {
+      background: rgba(15, 29, 56, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px var(--accent-glow);
+    .glass-card:hover {
+      border-color: rgba(245, 176, 65, 0.35);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 176, 65, 0.12);
+      transform: translateY(-4px);
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
+    #particles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .section-subtitle {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 15px;
-      margin-bottom: 50px;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      padding: 40px 8% 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      padding: 36px 28px;
-      border-radius: 16px;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      border-color: rgba(212, 175, 55, 0.4);
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 30px;
-      padding: 60px 8%;
-      background: rgba(255, 255, 255, 0.02);
-      border-top: 1px solid var(--card-border);
-      border-bottom: 1px solid var(--card-border);
-      text-align: center;
-    }
-
-    .stat-item h2 {
-      font-size: 40px;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .stat-item p {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-top: 4px;
-    }
-
-    .contact-box {
-      text-align: center;
-      padding: 90px 8%;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .whatsapp-btn {
-      background: #25d366;
-      color: #fff;
-      padding: 15px 36px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 24px;
-      transition: all 0.3s ease;
-    }
-
-    .whatsapp-btn:hover {
-      background: #1eb956;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 8%;
-      border-top: 1px solid var(--card-border);
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero { padding: 70px 6% 50px; }
-    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #030814; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #d97706; }
   </style>
 </head>
-<body>
+<body class="relative min-h-screen">
 
-  <header>
-    <div class="logo">ELVORA<span>.</span></div>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+  <!-- Ambient light animation canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation Bar (Strictly ELVORA - No Dot) -->
+  <header class="sticky top-0 z-40 bg-[#030814]/90 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo: ELVORA -->
+      <a href="#" class="flex items-center gap-2">
+        <span class="font-brand text-2xl md:text-3xl font-extrabold tracking-[0.25em] text-white hover:text-amber-400 transition-colors brand-glow">
+          ELVORA
+        </span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wider text-slate-300">
+        <a href="#products" class="hover:text-amber-400 transition-colors">Products</a>
+        <a href="#offers" class="hover:text-amber-400 transition-colors">Special Offers</a>
+        <a href="#reviews-section" class="hover:text-amber-400 transition-colors">Client Reviews</a>
+        <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
+      </nav>
+
+      <!-- Action Buttons: Add Product & Cart -->
+      <div class="flex items-center gap-3">
+        <!-- Add Product Button (Opens comprehensive form) -->
+        <button onclick="openAddProductModal()" class="flex items-center gap-1.5 bg-white/5 hover:bg-white/10 border border-amber-400/40 text-amber-300 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider transition-all hover:scale-105 shadow-sm">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 4v16m8-8H4"/></svg>
+          <span>Add Product</span>
+        </button>
+
+        <!-- Cart Button with Counter -->
+        <button onclick="toggleCartDrawer(true)" class="relative flex items-center justify-center p-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold shadow-lg shadow-amber-500/20 transition-all hover:scale-105">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span id="cart-counter" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#030814] font-bold">0</span>
+        </button>
+      </div>
     </div>
-    <a href="#contact" class="btn-contact">Get in Touch</a>
   </header>
 
-  <main>
-    <section class="hero">
-      <span class="tagline">Exclusive Business Excellence</span>
-      <h1>Redefining Standards with <span>ELVORA</span></h1>
-      <p>We deliver precision-driven strategies, premium identity design, and cutting-edge solutions crafted for forward-thinking enterprises.</p>
-      <a href="#services" class="cta-btn">Explore Offerings</a>
-    </section>
-
-    <section class="stats" id="about">
-      <div class="stat-item">
-        <h2>100%</h2>
-        <p>Premium Quality</p>
-      </div>
-      <div class="stat-item">
-        <h2>24/7</h2>
-        <p>Dedicated Support</p>
-      </div>
-      <div class="stat-item">
-        <h2>Custom</h2>
-        <p>Tailored Solutions</p>
-      </div>
-    </section>
-
-    <div style="padding-top: 80px;" id="services">
-      <h2 class="section-title">Our Premium Services</h2>
-      <p class="section-subtitle">Crafted with precision to accelerate your growth</p>
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-16 pb-24 px-4 sm:px-6 hero-glow text-center flex flex-col items-center">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-widest mb-6">
+      <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+      Exclusive Business Excellence
     </div>
 
-    <section class="features">
-      <div class="card">
-        <h3>Strategic Consulting</h3>
-        <p>Bespoke advisory frameworks designed to scale operations and unlock high-value global market opportunities.</p>
-      </div>
-      <div class="card">
-        <h3>Brand Distinction</h3>
-        <p>Curating identity and digital presence that commands authority across modern enterprise markets.</p>
-      </div>
-      <div class="card">
-        <h3>Digital Architecture</h3>
-        <p>Seamless execution models structured for resilient performance, speed, and international scalability.</p>
-      </div>
-    </section>
+    <h1 class="max-w-4xl text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight mb-5">
+      Redefining Standards with <br>
+      <span class="font-brand gold-gradient-text tracking-wider uppercase font-extrabold brand-glow">
+        ELVORA
+      </span>
+    </h1>
 
-    <section class="contact-box" id="contact">
-      <span class="tagline">Connect With Us</span>
-      <h2>Ready to Elevate Your Brand?</h2>
-      <p style="color: var(--text-muted); margin-top: 14px;">Contact our team directly on WhatsApp to discuss your requirements.</p>
-      <a href="https://wa.me/+917593097574" target="_blank" class="whatsapp-btn">
-        Chat on WhatsApp
+    <p class="max-w-2xl text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed mb-8">
+      We deliver precision-driven strategies, premium identity design, and cutting-edge solutions crafted for forward-thinking enterprises.
+    </p>
+
+    <!-- Quick Buttons -->
+    <div class="flex flex-wrap justify-center items-center gap-4">
+      <a href="#products" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 text-slate-950 font-bold text-sm tracking-wider shadow-lg shadow-amber-500/25 transition-transform hover:-translate-y-0.5">
+        Explore Offerings
       </a>
-    </section>
-  </main>
+      <button onclick="openAddProductModal()" class="px-7 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-sm tracking-wider transition-colors flex items-center gap-2">
+        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        New Product Form
+      </button>
+    </div>
 
-  <footer>
-    <p>&copy; 2026 ELVORA. All rights reserved.</p>
+    <!-- Stats Bar -->
+    <div class="mt-16 grid grid-cols-3 gap-6 md:gap-16 max-w-3xl w-full border-t border-white/10 pt-8">
+      <div>
+        <div class="text-2xl md:text-4xl font-extrabold text-amber-400 font-brand">100%</div>
+        <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Premium Quality</div>
+      </div>
+      <div>
+        <div class="text-2xl md:text-4xl font-extrabold text-amber-400 font-brand">24/7</div>
+        <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Dedicated Support</div>
+      </div>
+      <div>
+        <div class="text-2xl md:text-4xl font-extrabold text-amber-400 font-brand">Custom</div>
+        <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Tailored Solutions</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section id="products" class="relative z-10 py-16 px-4 sm:px-6 max-w-7xl mx-auto">
+    
+    <!-- Section Header & Filter / Search -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <span class="text-xs uppercase tracking-widest text-amber-400 font-semibold">Store & Inventory</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mt-1">Exclusive Collection</h2>
+        <p class="text-slate-400 text-sm mt-1">Order directly with UPI, Credit/Debit Card or Cash on Delivery.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center gap-2" id="category-pills">
+        <button onclick="setCategoryFilter('all')" class="cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 transition-all">All</button>
+        <button onclick="setCategoryFilter('Hardware')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Hardware</button>
+        <button onclick="setCategoryFilter('Apparel')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Luxury Gear</button>
+        <button onclick="setCategoryFilter('Accessories')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Accessories</button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- Special Offers Banner & Coupon showcase -->
+  <section id="offers" class="relative z-10 py-12 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div class="glass-card rounded-3xl p-8 md:p-12 border border-amber-500/20 bg-gradient-to-r from-amber-500/10 via-slate-900/50 to-blue-900/15 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <span class="bg-amber-400 text-slate-950 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Active Promo</span>
+        <h3 class="text-2xl md:text-3xl font-bold text-white mt-3">Special Inaugural Privilege Coupons</h3>
+        <p class="text-slate-400 text-sm mt-1 max-w-xl">Use verified codes at checkout to claim instant flat discounts across all ELVORA collections.</p>
+        
+        <div class="flex flex-wrap gap-4 mt-5">
+          <div class="border border-dashed border-amber-400/50 bg-black/40 px-4 py-2 rounded-xl flex items-center gap-3">
+            <span class="font-mono text-amber-300 font-bold text-sm">ELVORA10</span>
+            <span class="text-xs text-slate-400">| Flat 10% OFF</span>
+            <button onclick="copyCoupon('ELVORA10')" class="text-xs bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded">Copy</button>
+          </div>
+          <div class="border border-dashed border-amber-400/50 bg-black/40 px-4 py-2 rounded-xl flex items-center gap-3">
+            <span class="font-mono text-amber-300 font-bold text-sm">LUXURY20</span>
+            <span class="text-xs text-slate-400">| Flat 20% OFF</span>
+            <button onclick="copyCoupon('LUXURY20')" class="text-xs bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2 py-0.5 rounded">Copy</button>
+          </div>
+        </div>
+      </div>
+      <div class="text-center md:text-right">
+        <button onclick="toggleCartDrawer(true)" class="px-8 py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-bold rounded-full text-sm shadow-xl shadow-amber-500/20 transition-all hover:scale-105">
+          Redeem In Cart &rarr;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Client Reviews & Ratings Section -->
+  <section id="reviews-section" class="relative z-10 py-16 px-4 sm:px-6 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-xs uppercase tracking-widest text-amber-400 font-semibold">Testimonials</span>
+        <h2 class="text-3xl font-bold text-white tracking-tight mt-1">Verified Client Reviews</h2>
+        <p class="text-slate-400 text-sm">Real reviews from patrons of the ELVORA luxury ecosystem.</p>
+      </div>
+      <button onclick="openReviewModal()" class="px-5 py-2.5 rounded-full border border-amber-400/40 hover:bg-amber-500/10 text-amber-300 text-xs font-semibold flex items-center gap-2">
+        <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        Write a Review
+      </button>
+    </div>
+
+    <!-- Review Grid -->
+    <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Populated via JS -->
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MODAL: FULL "ADD PRODUCT" FORM (Complete requested fields)
+       ======================================================== -->
+  <div id="add-product-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+    <div class="glass-card max-w-2xl w-full rounded-3xl p-6 sm:p-8 my-8 relative border border-white/20 shadow-2xl">
+      
+      <!-- Close Button -->
+      <button onclick="closeAddProductModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Modal Title -->
+      <div class="mb-6">
+        <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Catalog Management</span>
+        <h3 class="text-2xl font-bold text-white tracking-wide mt-1">Add New Product to ELVORA</h3>
+        <p class="text-xs text-slate-400 mt-1">Fill in pricing, stock, discount offer, ratings, and accepted payment methods.</p>
+      </div>
+
+      <!-- Submission Form -->
+      <form id="product-form" onsubmit="saveProduct(event)" class="space-y-4">
+        
+        <!-- Row 1: Title & Category -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Product Title *</label>
+            <input type="text" id="f-title" required placeholder="e.g. ELVORA Horizon Chronometer" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Category *</label>
+            <select id="f-category" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+              <option value="Hardware">Hardware & Tech</option>
+              <option value="Apparel">Luxury Gear</option>
+              <option value="Accessories">Timepieces & Accessories</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 2: Pricing (M.R.P, Selling Price, Auto Offer Calculation) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">M.R.P (₹ / $) *</label>
+            <input type="number" id="f-mrp" required placeholder="14999" oninput="calculateOffer()" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Selling Price *</label>
+            <input type="number" id="f-selling" required placeholder="9999" oninput="calculateOffer()" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Offer / Discount %</label>
+            <input type="text" id="f-offer" readonly placeholder="Auto-calculated" class="w-full bg-slate-900 border border-amber-500/30 text-amber-400 rounded-xl px-4 py-2.5 text-sm font-semibold focus:outline-none">
+          </div>
+        </div>
+
+        <!-- Row 3: Stock Quantity & Initial Rating -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Stock Quantity *</label>
+            <input type="number" id="f-quantity" required placeholder="15" min="1" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Rating (1 to 5)</label>
+            <input type="number" id="f-rating" step="0.1" min="1" max="5" value="4.9" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Reviews Count</label>
+            <input type="number" id="f-reviewCount" value="48" class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <!-- Row 4: Image URL & Quick Image Selectors -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Product Image URL</label>
+          <input type="url" id="f-image" placeholder="https://..." class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+          <div class="flex items-center gap-2 mt-2">
+            <span class="text-[11px] text-slate-400">Or pick preset:</span>
+            <button type="button" onclick="setPresetImage('watch')" class="text-[10px] bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-md text-amber-300">Gold Watch</button>
+            <button type="button" onclick="setPresetImage('headphone')" class="text-[10px] bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-md text-amber-300">Audio Tech</button>
+            <button type="button" onclick="setPresetImage('perfume')" class="text-[10px] bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-md text-amber-300">Luxury Fragrance</button>
+          </div>
+        </div>
+
+        <!-- Row 5: Supported Payment Methods Checkboxes -->
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+          <label class="block text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Accepted Payment Methods for this item</label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <label class="flex items-center gap-2 text-xs text-slate-200 cursor-pointer">
+              <input type="checkbox" id="pay-cod" checked class="w-4 h-4 rounded text-amber-500 focus:ring-0">
+              <span>Cash on Delivery (COD)</span>
+            </label>
+            <label class="flex items-center gap-2 text-xs text-slate-200 cursor-pointer">
+              <input type="checkbox" id="pay-upi" checked class="w-4 h-4 rounded text-amber-500 focus:ring-0">
+              <span>UPI (GPay / PhonePe)</span>
+            </label>
+            <label class="flex items-center gap-2 text-xs text-slate-200 cursor-pointer">
+              <input type="checkbox" id="pay-card" checked class="w-4 h-4 rounded text-amber-500 focus:ring-0">
+              <span>Credit / Debit Card</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Row 6: Description -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Product Description *</label>
+          <textarea id="f-desc" rows="2" required placeholder="Handcrafted with aerospace aluminum, sapphire crystal, and premium materials..." class="w-full bg-slate-950/80 border border-white/15 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-amber-400"></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="pt-3 flex items-center justify-end gap-3">
+          <button type="button" onclick="closeAddProductModal()" class="px-5 py-2.5 text-xs font-semibold text-slate-400 hover:text-white">Cancel</button>
+          <button type="submit" class="px-7 py-2.5 bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-300 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25">
+            Save & Publish
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SLIDE-OVER CART & COMPLETE CHECKOUT DRAWER
+       ======================================================== -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer(false)"></div>
+  
+  <div id="cart-drawer" class="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-[#050c1c] border-l border-white/10 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-white/10 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="font-brand text-lg font-bold text-white tracking-widest">ELVORA</span>
+        <span class="text-xs text-amber-400 font-semibold px-2 py-0.5 rounded-full bg-amber-400/10 border border-amber-400/30">Checkout Cart</span>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="text-slate-400 hover:text-white p-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Items dynamically added -->
+    </div>
+
+    <!-- Checkout Summary & Payment Controls -->
+    <div class="p-5 border-t border-white/10 bg-[#030814]/90 space-y-4">
+      
+      <!-- Coupon Code Section -->
+      <div>
+        <label class="block text-[11px] uppercase tracking-wider text-slate-300 mb-1">Coupon Code</label>
+        <div class="flex gap-2">
+          <input type="text" id="coupon-input" placeholder="e.g. ELVORA10" class="flex-1 bg-slate-900 border border-white/15 uppercase px-3 py-2 rounded-xl text-xs text-white focus:outline-none focus:border-amber-400">
+          <button onclick="applyCoupon()" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl transition-colors">Apply</button>
+        </div>
+        <div id="coupon-status" class="text-[11px] mt-1 text-emerald-400 hidden"></div>
+      </div>
+
+      <!-- Payment Method Selection -->
+      <div>
+        <label class="block text-[11px] uppercase tracking-wider text-slate-300 mb-1.5">Choose Payment Method</label>
+        <div class="grid grid-cols-3 gap-2">
+          <label class="border border-white/10 rounded-xl p-2.5 flex flex-col items-center justify-center text-center cursor-pointer hover:border-amber-400 transition-all bg-white/5 payment-option active-method" onclick="selectPaymentMethod('upi', this)">
+            <span class="text-sm">⚡</span>
+            <span class="text-[10px] font-semibold mt-1">UPI Pay</span>
+          </label>
+          <label class="border border-white/10 rounded-xl p-2.5 flex flex-col items-center justify-center text-center cursor-pointer hover:border-amber-400 transition-all bg-white/5 payment-option" onclick="selectPaymentMethod('card', this)">
+            <span class="text-sm">💳</span>
+            <span class="text-[10px] font-semibold mt-1">Card</span>
+          </label>
+          <label class="border border-white/10 rounded-xl p-2.5 flex flex-col items-center justify-center text-center cursor-pointer hover:border-amber-400 transition-all bg-white/5 payment-option" onclick="selectPaymentMethod('cod', this)">
+            <span class="text-sm">💵</span>
+            <span class="text-[10px] font-semibold mt-1">Cash on Delivery</span>
+          </label>
+        </div>
+
+        <!-- Conditional Payment Details Form -->
+        <div id="payment-input-area" class="mt-3 p-3 rounded-xl bg-slate-900/80 border border-white/10 text-xs">
+          <!-- Defaults to UPI input -->
+          <div id="upi-details">
+            <span class="text-slate-400 text-[11px]">Pay directly with Google Pay, PhonePe, or Paytm:</span>
+            <input type="text" id="upi-id-input" placeholder="yourname@upi or 9876543210@paytm" class="w-full mt-1.5 bg-black/60 border border-white/15 px-3 py-1.5 rounded-lg text-white">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bill Breakdown -->
+      <div class="space-y-1.5 pt-2 border-t border-white/10 text-xs">
+        <div class="flex justify-between text-slate-400">
+          <span>Total M.R.P</span>
+          <span id="summary-mrp">₹0</span>
+        </div>
+        <div class="flex justify-between text-emerald-400">
+          <span>Product Discount</span>
+          <span id="summary-discount">- ₹0</span>
+        </div>
+        <div id="coupon-row" class="flex justify-between text-amber-400 hidden">
+          <span>Coupon Savings</span>
+          <span id="summary-coupon">- ₹0</span>
+        </div>
+        <div class="flex justify-between text-slate-400">
+          <span>Express Delivery</span>
+          <span class="text-emerald-400">FREE</span>
+        </div>
+        <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-white/10">
+          <span>Final Payable</span>
+          <span id="summary-total" class="text-amber-400 font-brand text-base">₹0</span>
+        </div>
+      </div>
+
+      <!-- Checkout Confirmation Button -->
+      <button onclick="placeOrder()" class="w-full py-3.5 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20">
+        Confirm & Place Order
+      </button>
+    </div>
+  </div>
+
+  <!-- Review Submission Modal -->
+  <div id="review-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 border border-white/15 shadow-2xl relative">
+      <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">&times;</button>
+      <h3 class="text-lg font-bold text-white mb-1">Submit Your Review</h3>
+      <p class="text-xs text-slate-400 mb-4">Share your experience with the ELVORA collection.</p>
+
+      <form onsubmit="submitReview(event)" class="space-y-3">
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">Your Name</label>
+          <input type="text" id="r-author" required placeholder="e.g. Rahul S." class="w-full bg-slate-900 border border-white/15 rounded-xl px-3 py-2 text-xs text-white">
+        </div>
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">Rating</label>
+          <select id="r-stars" class="w-full bg-slate-900 border border-white/15 rounded-xl px-3 py-2 text-xs text-amber-400 font-bold">
+            <option value="5">★★★★★ (5/5 Exceptional)</option>
+            <option value="4">★★★★☆ (4/5 Very Good)</option>
+            <option value="3">★★★☆☆ (3/5 Good)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">Feedback</label>
+          <textarea id="r-comment" rows="3" required placeholder="The build quality and finish surpassed my expectations..." class="w-full bg-slate-900 border border-white/15 rounded-xl px-3 py-2 text-xs text-white"></textarea>
+        </div>
+        <button type="submit" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider">
+          Publish Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Receipt Success Modal -->
+  <div id="order-success-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full rounded-3xl p-6 md:p-8 text-center border border-amber-500/30">
+      <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">✓</div>
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-400 font-brand">Order Confirmed</span>
+      <h3 class="text-2xl font-bold text-white mt-1">Thank you for choosing ELVORA</h3>
+      <p id="receipt-details" class="text-xs text-slate-300 mt-3 leading-relaxed"></p>
+      
+      <div class="mt-6 pt-4 border-t border-white/10 flex justify-center">
+        <button onclick="closeReceiptModal()" class="px-6 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-full text-xs uppercase tracking-wider">
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 border border-amber-500/60 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+    <span id="toast-text" class="text-xs font-medium">Notification message</span>
+  </div>
+
+  <!-- Footer -->
+  <footer id="about" class="border-t border-white/10 bg-[#02050b] py-14 px-4 sm:px-6 mt-20 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <div class="font-brand text-2xl font-extrabold tracking-[0.25em] text-white">ELVORA</div>
+        <p class="text-xs text-slate-400 mt-1">Elevating standards with unmatched distinction and craftsmanship.</p>
+      </div>
+      <div class="flex items-center gap-6 text-xs text-slate-400">
+        <span>COD Available</span>
+        <span>•</span>
+        <span>Instant UPI</span>
+        <span>•</span>
+        <span>Card Security</span>
+      </div>
+      <p class="text-xs text-slate-500">© 2026 ELVORA. Strictly Authentic.</p>
+    </div>
   </footer>
 
+  <!-- ========================================================
+       APPLICATION JAVASCRIPT LOGIC
+       ======================================================== -->
+  <script>
+    /* Default Luxury Products Catalog */
+    const DEFAULT_PRODUCTS = [
+      {
+        id: 1,
+        title: "ELVORA Horizon Titanium Chrono",
+        category: "Accessories",
+        mrp: 24999,
+        sellingPrice: 16999,
+        offer: "32% OFF",
+        quantity: 8,
+        rating: 4.9,
+        reviewCount: 142,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+        description: "Handcrafted aerospace titanium bezel with scratch-resistant sapphire crystal and precision mechanical quartz movement.",
+        cod: true,
+        upi: true,
+        card: true
+      },
+      {
+        id: 2,
+        title: "ELVORA Apex Acoustic Headphones",
+        category: "Hardware",
+        mrp: 18999,
+        sellingPrice: 12499,
+        offer: "34% OFF",
+        quantity: 14,
+        rating: 4.8,
+        reviewCount: 96,
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+        description: "Active noise cancellation with 40mm beryllium drivers for pristine studio audio fidelity.",
+        cod: true,
+        upi: true,
+        card: true
+      },
+      {
+        id: 3,
+        title: "ELVORA Noir Oud Eau De Parfum",
+        category: "Apparel",
+        mrp: 9999,
+        sellingPrice: 6999,
+        offer: "30% OFF",
+        quantity: 4,
+        rating: 5.0,
+        reviewCount: 68,
+        image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80",
+        description: "Rare Cambodian oud infused with velvety amber, dark bergamot, and smoky leather.",
+        cod: true,
+        upi: true,
+        card: true
+      }
+    ];
+
+    let products = JSON.parse(localStorage.getItem('elvora_products')) || DEFAULT_PRODUCTS;
+    let cart = [];
+    let currentFilter = 'all';
+    let activeCoupon = null;
+    let selectedPayment = 'upi';
+
+    /* Reviews data */
+    let reviewsList = [
+      { author: "Arjun Verma", rating: 5, comment: "ELVORA exceeded all expectations. Packaging and build quality feel extremely premium." },
+      { author: "Kavya Menon", rating: 5, comment: "Ordered with UPI; smooth transaction and received the delivery within 48 hours." },
+      { author: "Zayd Al-Mansoor", rating: 4, comment: "The titanium finish is unmatched. True modern luxury feel." }
+    ];
+
+    /* Initialize Application */
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      renderReviews();
+      updateCartUI();
+      initParticles();
+    });
+
+    /* Render Products Grid */
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = '';
+
+      const filtered = currentFilter === 'all' 
+        ? products 
+        : products.filter(p => p.category.toLowerCase() === currentFilter.toLowerCase());
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-400">
+            No items available under this category.
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const savings = p.mrp - p.sellingPrice;
+        const stockStatus = p.quantity > 5 
+          ? `<span class="text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 text-[10px] px-2 py-0.5 rounded-full">In Stock (${p.quantity})</span>`
+          : `<span class="text-amber-400 bg-amber-500/10 border border-amber-500/30 text-[10px] px-2 py-0.5 rounded-full">Only ${p.quantity} left</span>`;
+
+        const card = document.createElement('div');
+        card.className = "glass-card rounded-2xl overflow-hidden flex flex-col group";
+        card.innerHTML = `
+          <div class="relative h-56 w-full bg-slate-950 overflow-hidden">
+            <img src="${p.image}" alt="${p.title}" onerror="this.src='https://placehold.co/600x400/0b1528/F5B041?text=ELVORA'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            
+            <!-- Badges -->
+            <div class="absolute top-3 left-3 flex flex-col gap-1.5">
+              <span class="bg-amber-500 text-slate-950 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full shadow-md">
+                ${p.offer || 'SPECIAL'}
+              </span>
+            </div>
+
+            <div class="absolute top-3 right-3">
+              ${stockStatus}
+            </div>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1.5 text-xs text-amber-400 mb-1">
+                <span>★ ${p.rating}</span>
+                <span class="text-slate-500">(${p.reviewCount} reviews)</span>
+              </div>
+
+              <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors line-clamp-1">${p.title}</h4>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">${p.description}</p>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-white/5">
+              <!-- Pricing Row -->
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-xl font-extrabold text-amber-400 font-brand">₹${p.sellingPrice.toLocaleString()}</span>
+                <span class="text-xs text-slate-500 line-through">₹${p.mrp.toLocaleString()}</span>
+                <span class="text-[11px] text-emerald-400 font-medium">Save ₹${savings.toLocaleString()}</span>
+              </div>
+
+              <!-- Payment Method Badges -->
+              <div class="flex items-center gap-1.5 mb-4 text-[10px] text-slate-300">
+                ${p.cod ? '<span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded">COD Available</span>' : ''}
+                ${p.upi ? '<span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded">UPI</span>' : ''}
+                ${p.card ? '<span class="bg-white/5 border border-white/10 px-2 py-0.5 rounded">Card</span>' : ''}
+              </div>
+
+              <!-- Buttons -->
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="addToCart(${p.id})" class="w-full py-2 bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-xs rounded-xl transition-all">
+                  Add to Cart
+                </button>
+                <button onclick="buyNow(${p.id})" class="w-full py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-bold text-xs rounded-xl shadow-md transition-all">
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function setCategoryFilter(cat) {
+      currentFilter = cat;
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => {
+        if(p.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'all' && p.innerText === 'All')) {
+          p.className = 'cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-500 text-slate-950 transition-all';
+        } else {
+          p.className = 'cat-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-300 transition-all';
+        }
+      });
+      renderProducts();
+    }
+
+    /* Modal Form for Adding New Product */
+    function openAddProductModal() {
+      document.getElementById('add-product-modal').classList.remove('hidden');
+    }
+
+    function closeAddProductModal() {
+      document.getElementById('add-product-modal').classList.add('hidden');
+      document.getElementById('product-form').reset();
+      document.getElementById('f-offer').value = '';
+    }
+
+    function calculateOffer() {
+      const mrp = parseFloat(document.getElementById('f-mrp').value) || 0;
+      const selling = parseFloat(document.getElementById('f-selling').value) || 0;
+      if (mrp > 0 && selling > 0 && mrp > selling) {
+        const discount = Math.round(((mrp - selling) / mrp) * 100);
+        document.getElementById('f-offer').value = `${discount}% OFF`;
+      } else {
+        document.getElementById('f-offer').value = '';
+      }
+    }
+
+    function setPresetImage(type) {
+      const imgInput = document.getElementById('f-image');
+      if (type === 'watch') imgInput.value = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80';
+      if (type === 'headphone') imgInput.value = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80';
+      if (type === 'perfume') imgInput.value = 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80';
+    }
+
+    function saveProduct(e) {
+      e.preventDefault();
+      const mrp = parseFloat(document.getElementById('f-mrp').value);
+      const selling = parseFloat(document.getElementById('f-selling').value);
+      const offerCalculated = document.getElementById('f-offer').value || `${Math.round(((mrp - selling)/mrp)*100)}% OFF`;
+
+      let img = document.getElementById('f-image').value.trim();
+      if (!img) img = 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80';
+
+      const newProduct = {
+        id: Date.now(),
+        title: document.getElementById('f-title').value,
+        category: document.getElementById('f-category').value,
+        mrp: mrp,
+        sellingPrice: selling,
+        offer: offerCalculated,
+        quantity: parseInt(document.getElementById('f-quantity').value) || 5,
+        rating: parseFloat(document.getElementById('f-rating').value) || 5.0,
+        reviewCount: parseInt(document.getElementById('f-reviewCount').value) || 12,
+        image: img,
+        description: document.getElementById('f-desc').value,
+        cod: document.getElementById('pay-cod').checked,
+        upi: document.getElementById('pay-upi').checked,
+        card: document.getElementById('pay-card').checked
+      };
+
+      products.unshift(newProduct);
+      localStorage.setItem('elvora_products', JSON.stringify(products));
+      renderProducts();
+      closeAddProductModal();
+      showToast('Product successfully added to ELVORA inventory!');
+    }
+
+    /* Cart Drawer Management */
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-drawer-overlay');
+      if (open) {
+        drawer.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+      } else {
+        drawer.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+      }
+    }
+
+    function addToCart(productId) {
+      const item = products.find(p => p.id === productId);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === productId);
+      if (existing) {
+        if (existing.qty < item.quantity) {
+          existing.qty++;
+          showToast(`Increased quantity for ${item.title}`);
+        } else {
+          showToast(`Maximum available stock reached for this item.`);
+        }
+      } else {
+        cart.push({ ...item, qty: 1 });
+        showToast(`${item.title} added to ELVORA cart.`);
+      }
+      updateCartUI();
+    }
+
+    function buyNow(productId) {
+      addToCart(productId);
+      toggleCartDrawer(true);
+    }
+
+    function changeCartQty(id, delta) {
+      const item = cart.find(c => c.id === id);
+      const product = products.find(p => p.id === id);
+      if (!item) return;
+
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(c => c.id !== id);
+      } else if (product && item.qty > product.quantity) {
+        item.qty = product.quantity;
+        showToast("Cannot exceed available warehouse stock.");
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const counter = document.getElementById('cart-counter');
+      const container = document.getElementById('cart-items-container');
+      
+      const totalCount = cart.reduce((acc, curr) => acc + curr.qty, 0);
+      counter.innerText = totalCount;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center text-slate-500 py-12">
+            <svg class="w-12 h-12 text-slate-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <p class="text-sm font-medium">Your ELVORA cart is empty.</p>
+            <span class="text-xs text-slate-600 mt-1">Explore our exclusive offerings</span>
+          </div>
+        `;
+      } else {
+        container.innerHTML = '';
+        cart.forEach(item => {
+          const row = document.createElement('div');
+          row.className = "flex items-center gap-3 p-3 rounded-xl bg-slate-900/60 border border-white/5";
+          row.innerHTML = `
+            <img src="${item.image}" class="w-14 h-14 object-cover rounded-lg bg-black" onerror="this.src='https://placehold.co/100x100/0b1528/F5B041?text=ELVORA'">
+            <div class="flex-1">
+              <h5 class="text-xs font-bold text-white line-clamp-1">${item.title}</h5>
+              <div class="text-amber-400 font-bold text-xs mt-0.5">₹${item.sellingPrice.toLocaleString()}</div>
+            </div>
+            <div class="flex items-center gap-2 bg-black/50 border border-white/10 rounded-lg px-2 py-1">
+              <button onclick="changeCartQty(${item.id}, -1)" class="text-xs text-slate-400 hover:text-white px-1 font-bold">-</button>
+              <span class="text-xs font-semibold text-white">${item.qty}</span>
+              <button onclick="changeCartQty(${item.id}, 1)" class="text-xs text-slate-400 hover:text-white px-1 font-bold">+</button>
+            </div>
+          `;
+          container.appendChild(row);
+        });
+      }
+
+      calculateBill();
+    }
+
+    function calculateBill() {
+      let totalMrp = 0;
+      let totalSelling = 0;
+
+      cart.forEach(c => {
+        totalMrp += (c.mrp * c.qty);
+        totalSelling += (c.sellingPrice * c.qty);
+      });
+
+      const productDiscount = totalMrp - totalSelling;
+      let couponSavings = 0;
+
+      if (activeCoupon === 'ELVORA10') {
+        couponSavings = Math.round(totalSelling * 0.10);
+      } else if (activeCoupon === 'LUXURY20') {
+        couponSavings = Math.round(totalSelling * 0.20);
+      }
+
+      const finalAmount = Math.max(0, totalSelling - couponSavings);
+
+      document.getElementById('summary-mrp').innerText = `₹${totalMrp.toLocaleString()}`;
+      document.getElementById('summary-discount').innerText = `- ₹${productDiscount.toLocaleString()}`;
+      
+      const couponRow = document.getElementById('coupon-row');
+      if (couponSavings > 0) {
+        couponRow.classList.remove('hidden');
+        document.getElementById('summary-coupon').innerText = `- ₹${couponSavings.toLocaleString()}`;
+      } else {
+        couponRow.classList.add('hidden');
+      }
+
+      document.getElementById('summary-total').innerText = `₹${finalAmount.toLocaleString()}`;
+    }
+
+    /* Coupon Codes */
+    function applyCoupon() {
+      const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+      const status = document.getElementById('coupon-status');
+
+      if (cart.length === 0) {
+        showToast('Please add items to your cart first.');
+        return;
+      }
+
+      if (code === 'ELVORA10') {
+        activeCoupon = 'ELVORA10';
+        status.innerText = 'Coupon ELVORA10 applied: 10% instant discount!';
+        status.classList.remove('hidden');
+        showToast('10% Coupon Applied!');
+      } else if (code === 'LUXURY20') {
+        activeCoupon = 'LUXURY20';
+        status.innerText = 'Coupon LUXURY20 applied: 20% privilege discount!';
+        status.classList.remove('hidden');
+        showToast('20% Coupon Applied!');
+      } else {
+        status.innerText = 'Invalid coupon code. Try ELVORA10 or LUXURY20.';
+        status.classList.remove('hidden');
+        status.className = "text-[11px] mt-1 text-red-400";
+        return;
+      }
+      calculateBill();
+    }
+
+    function copyCoupon(code) {
+      document.getElementById('coupon-input').value = code;
+      showToast(`Coupon ${code} copied!`);
+      toggleCartDrawer(true);
+    }
+
+    /* Payment Mode Switcher */
+    function selectPaymentMethod(method, element) {
+      selectedPayment = method;
+      document.querySelectorAll('.payment-option').forEach(el => {
+        el.classList.remove('border-amber-400', 'bg-amber-500/10');
+      });
+      element.classList.add('border-amber-400', 'bg-amber-500/10');
+
+      const container = document.getElementById('payment-input-area');
+      if (method === 'upi') {
+        container.innerHTML = `
+          <div id="upi-details">
+            <span class="text-slate-400 text-[11px]">Pay directly via UPI ID / Virtual Address:</span>
+            <input type="text" id="upi-id-input" placeholder="e.g. mobileNumber@upi" class="w-full mt-1.5 bg-black/60 border border-white/15 px-3 py-1.5 rounded-lg text-white text-xs">
+          </div>
+        `;
+      } else if (method === 'card') {
+        container.innerHTML = `
+          <div class="space-y-2">
+            <span class="text-slate-400 text-[11px]">Encrypted Card Details:</span>
+            <input type="text" placeholder="Card Number (0000 0000 0000 0000)" class="w-full bg-black/60 border border-white/15 px-3 py-1.5 rounded-lg text-white text-xs">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" placeholder="MM/YY" class="bg-black/60 border border-white/15 px-3 py-1.5 rounded-lg text-white text-xs">
+              <input type="password" placeholder="CVV" maxlength="3" class="bg-black/60 border border-white/15 px-3 py-1.5 rounded-lg text-white text-xs">
+            </div>
+          </div>
+        `;
+      } else if (method === 'cod') {
+        container.innerHTML = `
+          <div class="text-[11px] text-amber-300">
+            ✓ Cash on Delivery is available for this dispatch. Please verify your phone number during doorstep handover.
+          </div>
+        `;
+      }
+    }
+
+    /* Place Order Checkout Handler */
+    function placeOrder() {
+      if (cart.length === 0) {
+        showToast("Your cart is empty. Add products before placing order.");
+        return;
+      }
+
+      const total = document.getElementById('summary-total').innerText;
+      const orderId = 'ELV-' + Math.floor(100000 + Math.random() * 900000);
+      
+      const receipt = `
+        Your transaction of <strong>${total}</strong> has been registered.<br>
+        <strong>Order ID:</strong> ${orderId}<br>
+        <strong>Payment Method:</strong> ${selectedPayment.toUpperCase()}<br>
+        <strong>Delivery:</strong> Express Courier dispatched within 24 hours.
+      `;
+
+      document.getElementById('receipt-details').innerHTML = receipt;
+      document.getElementById('order-success-modal').classList.remove('hidden');
+
+      // Clear Cart
+      cart = [];
+      activeCoupon = null;
+      updateCartUI();
+      toggleCartDrawer(false);
+    }
+
+    function closeReceiptModal() {
+      document.getElementById('order-success-modal').classList.add('hidden');
+    }
+
+    /* Reviews System */
+    function renderReviews() {
+      const container = document.getElementById('reviews-grid');
+      container.innerHTML = '';
+
+      reviewsList.forEach(r => {
+        const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+        const card = document.createElement('div');
+        card.className = "glass-card p-5 rounded-2xl border border-white/10";
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold text-white">${r.author}</span>
+            <span class="text-amber-400 text-xs">${stars}</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed font-light">"${r.comment}"</p>
+          <div class="mt-3 flex items-center gap-1.5 text-[10px] text-emerald-400">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            Verified ELVORA Patron
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function openReviewModal() {
+      document.getElementById('review-modal').classList.remove('hidden');
+    }
+
+    function closeReviewModal() {
+      document.getElementById('review-modal').classList.add('hidden');
+    }
+
+    function submitReview(e) {
+      e.preventDefault();
+      const author = document.getElementById('r-author').value;
+      const stars = parseInt(document.getElementById('r-stars').value);
+      const comment = document.getElementById('r-comment').value;
+
+      reviewsList.unshift({ author, rating: stars, comment });
+      renderReviews();
+      closeReviewModal();
+      showToast('Thank you! Your verified review has been published.');
+    }
+
+    /* Toast Notification Helper */
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').innerText = msg;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    /* Ambient Background Light Streams Animation */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight * 1.5;
+    }
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = height + Math.random() * 40;
+        this.length = Math.random() * 45 + 15;
+        this.speed = Math.random() * 1.8 + 0.6;
+        this.alpha = Math.random() * 0.4 + 0.1;
+        this.width = Math.random() * 1.5 + 0.5;
+        this.color = Math.random() > 0.4 ? 'rgba(56, 189, 248,' : 'rgba(245, 176, 65,';
+      }
+      update() {
+        this.y -= this.speed;
+        if (this.y < -50) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        const grad = ctx.createLinearGradient(this.x, this.y, this.x, this.y + this.length);
+        grad.addColorStop(0, this.color + this.alpha + ')');
+        grad.addColorStop(1, this.color + '0)');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = this.width;
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.length);
+        ctx.stroke();
+      }
+    }
+
+    function initParticles() {
+      resizeCanvas();
+      particles = [];
+      const count = Math.floor(window.innerWidth / 16);
+      for (let i = 0; i < count; i++) {
+        const p = new Particle();
+        p.y = Math.random() * height;
+        particles.push(p);
+      }
+      animateParticles();
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+    });
+  </script>
 </body>
 </html>
+```
+   
