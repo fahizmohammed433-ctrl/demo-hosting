@@ -116,13 +116,13 @@
       stockStatus.innerText = "Out of Stock";
       stockStatus.classList.add("out-of-stock");
       
-      cartBtn.innerText = "Sold Out";
+      cartBtn.innerText = "Out of Stock";
       cartBtn.classList.add("btn-disabled");
       cartBtn.disabled = true; // ബട്ടൺ ക്ലിക്ക് ചെയ്യാൻ പറ്റാത്തവിധം ഡിസേബിൾ ചെയ്യുന്നു
     } else {
       // സ്റ്റോക്ക് ഉണ്ടെങ്കിൽ
-      stockStatus.innerText = `In Stock (${quantity} left)`;
-      stockStatus.classList.add("in-stock");
+      stockStatus.innerText = `Out of Stock"; (${quantity} left)`;
+      stockStatus.classList.add("out-of-stock");
       
       cartBtn.innerText = "Add to Cart";
       cartBtn.classList.add("btn-active");
